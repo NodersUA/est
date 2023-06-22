@@ -1,6 +1,6 @@
 #!/bin/bash
 
-count=100
+count=140
 timeout=$((3600 / count))
 
 #sleep $(shuf -i 60-120 -n 1)
@@ -24,16 +24,16 @@ denom=$(shuf -n 1 credits.txt)
 echo ">>> Credit ${i}: ${denom}"
 
 # buy credit
-execute_with_sequence_check "empowerd tx wasm execute empower14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sfg4umu '{\"buy_credits\":{\"owner\":\"empower10meawsx9u3lkl2p6amk87k6tye6qn6dkqx2ksj\",\"denom\":\"${denom}\",\"number_of_credits_to_buy\":1}}' --amount 500000umpwr --from wallet --gas 500000 --fees $(shuf -i 150-250 -n 1)00umpwr"
+execute_with_sequence_check "empowerd tx wasm execute empower14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sfg4umu '{\"buy_credits\":{\"owner\":\"empower10meawsx9u3lkl2p6amk87k6tye6qn6dkqx2ksj\",\"denom\":\"${denom}\",\"number_of_credits_to_buy\":1}}' --amount 500000umpwr --from wallet --gas 500000 --fees $(shuf -i 1000-2500 -n 1)0umpwr"
 
 if [ $(shuf -i 1-2 -n 1) == 1 ]; then
 echo "tranfer credit"
 # tranfer credit
-execute_with_sequence_check "empowerd tx plasticcredit transfer ${wallet} empower175p8jy5fcdkpm3djk40p8ucdn3lyjyd7jtf77w ${denom} 1 false --gas 500000 --fees $(shuf -i 150-250 -n 1)00umpwr"
+execute_with_sequence_check "empowerd tx plasticcredit transfer ${wallet} empower175p8jy5fcdkpm3djk40p8ucdn3lyjyd7jtf77w ${denom} 1 false --gas 500000 --fees $(shuf -i 1000-2500 -n 1)0umpwr"
 else
 echo "retire credit"
 # retire
-execute_with_sequence_check "empowerd tx plasticcredit retire $denom 1 $MONIKER test --from wallet --gas 500000 --fees $(shuf -i 150-250 -n 1)00umpwr"
+execute_with_sequence_check "empowerd tx plasticcredit retire $denom 1 $MONIKER $MONIKER --from wallet --gas 500000 --fees $(shuf -i 1000-2500 -n 1)0umpwr"
 fi
 
 done
