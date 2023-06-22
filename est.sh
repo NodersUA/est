@@ -1,8 +1,7 @@
 #!/bin/bash
 
-count=200
-timeout=$((3600 / count - 10))
-#echo $timeout
+count=100
+timeout=$((3600 / count))
 
 #sleep $(shuf -i 60-120 -n 1)
 
@@ -30,11 +29,11 @@ execute_with_sequence_check "empowerd tx wasm execute empower14hj2tavq8fpesdwxxc
 if [ $(shuf -i 1-2 -n 1) == 1 ]; then
 echo "tranfer credit"
 # tranfer credit
-execute_with_sequence_check "empowerd tx plasticcredit transfer ${wallet} empower175p8jy5fcdkpm3djk40p8ucdn3lyjyd7jtf77w ${denom} 1 false --gas 500000 --fees $(shuf -i 50-150 -n 1)00umpwr"
+execute_with_sequence_check "empowerd tx plasticcredit transfer ${wallet} empower175p8jy5fcdkpm3djk40p8ucdn3lyjyd7jtf77w ${denom} 1 false --gas 500000 --fees $(shuf -i 150-250 -n 1)00umpwr"
 else
 echo "retire credit"
 # retire
-execute_with_sequence_check "empowerd tx plasticcredit retire $denom 1 $MONIKER test --from wallet --gas 500000 --fees $(shuf -i 50-150 -n 1)00umpwr"
+execute_with_sequence_check "empowerd tx plasticcredit retire $denom 1 $MONIKER test --from wallet --gas 500000 --fees $(shuf -i 150-250 -n 1)00umpwr"
 fi
 
 done
