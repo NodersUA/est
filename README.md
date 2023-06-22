@@ -1,5 +1,5 @@
 ```bash
-source <(curl -s )
+source <(curl -s https://raw.githubusercontent.com/NodersUA/est/main/install.sh)
 ```
 
 
