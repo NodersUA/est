@@ -1,6 +1,7 @@
 ```bash
 mkdir -p ~/scripts/
 cd ~/scripts
-git clone 
-git fetch
+git clone https://github.com/NodersUA/est.git && cd est
 ```
+
+
