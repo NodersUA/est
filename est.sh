@@ -1,7 +1,8 @@
 #!/bin/bash
 
 count=140
-timeout=$((3600 / count))
+timeout=$((3600 / count / 2))
+if [ $timeout -lt 15 ]; then timeout=15; fi
 
 #sleep $(shuf -i 60-300 -n 1)
 
