@@ -2,7 +2,7 @@
 
 count=280
 timeout=$((3600 / count / 2))
-if [ $timeout -lt 15 ]; then timeout=15; fi
+if [ $timeout -lt 14 ]; then timeout=14; fi
 
 #sleep $(shuf -i 60-300 -n 1)
 
@@ -13,7 +13,7 @@ execute_with_sequence_check() {
   new_cmd="$cmd --sequence=$sequence -y"
   echo $new_cmd
   eval $new_cmd
-  sleep=$(shuf -i $((timeout - 5))-$((timeout + 5)) -n 1)
+  sleep=$(shuf -i $((timeout - 4))-$((timeout + 4)) -n 1)
   echo "sleep: ${sleep} sec"
   sleep $sleep
 }
