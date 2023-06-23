@@ -1,6 +1,6 @@
 #!/bin/bash
 
-count=140
+count=150
 timeout=$((3600 / count / 2))
 if [ $timeout -lt 15 ]; then timeout=15; fi
 
