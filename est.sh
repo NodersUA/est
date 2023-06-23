@@ -4,7 +4,7 @@ count=280
 timeout=$((3600 / count / 2))
 if [ $timeout -lt 14 ]; then timeout=14; fi
 
-#sleep $(shuf -i 60-300 -n 1)
+sleep $(shuf -i 60-300 -n 1)
 
 execute_with_sequence_check() {
   cmd=$1
