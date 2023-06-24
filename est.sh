@@ -1,7 +1,10 @@
 #!/bin/bash
 
-count=100
-timeout=$((3600 / count / 2))
+balance=$(empowerd q bank balances $EMPOWER_ADDRESS --output=json | jq -r '.balances[] | select(.denom == "umpwr") | .amount' | tr -d '"')
+count=$((balance / 500000 * 2))
+
+if [ $count -gt 4 ]; then 
+timeout=$((3600 / count))
 if [ $timeout -lt 12 ]; then timeout=12; fi
 
 sleep $(shuf -i 60-180 -n 1)
@@ -38,3 +41,5 @@ execute_with_sequence_check "empowerd tx plasticcredit retire $denom 1 $MONIKER 
 fi
 
 done
+
+fi
